@@ -38,7 +38,8 @@
                         }
                     });
                 }).catch(() => {
-                    window.location.href = 'https://www.scuisdc.org'
+                    //暂时注释
+                    //window.location.href = 'https://www.scuisdc.org'
                 });
             },
             handleCommand(command) {

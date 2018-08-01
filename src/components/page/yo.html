@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>vue公告板</title>
+    <script src="https://cdn.bootcss.com/vue/2.5.17-beta.0/vue.js"></script>
+</head>
+<body>
+<div id="board">
+    <div class="marquee">
+        <div class="marquee_title">
+            <span>最新战报</span>
+        </div>
+        <div class="marquee_box">
+            <ul class="marquee_list" :style="{ top: -num + 'px'}" :class="{marquee_top:num}">
+                <!-- 当显示最后一条的时候（num=0转换布尔类型为false）去掉过渡效果-->
+                <li v-for="(item, index) in marqueeList" >
+                    <span>{{item.name}}</span>
+                    <span>在</span>
+                    <span class="red"> {{item.city}}</span>
+                    <span>杀敌</span>
+                    <span class="red"> {{item.amount}}</span>
+                    <span>万</span>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+</body>
+<script>
+    new Vue({
+        el: "#board",
+        data: {
+            animate: false,
+            //marquee，字幕表
+            //存储公告信息的列表
+            marqueeList: [
+                {
+                    name: '1军',
+                    city: '北京',
+                    amount: '10'
+                },
+                {
+                    name: '2军',
+                    city: '上海',
+                    amount: '20'
+                },
+                {
+                    name: '3军',
+                    city: '广州',
+                    amount: '30'
+                },
+                {
+                    name: '4军',
+                    city: '重庆',
+                    amount: '40'
+                }
+            ]
+        },
+        created: function () {
+            setInterval(this.showMarquee, 2000)
+        },
+        methods: {
+            showMarquee: function () {
+                this.animate = true;
+                setTimeout(() => {
+                    this.marqueeList.push(this.marqueeList[0]);
+                    this.marqueeList.shift();
+                    this.animate = false;
+                }, 500)
+            },
+        }
+    });
+</script>
+</html>

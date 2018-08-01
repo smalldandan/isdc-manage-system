@@ -35,15 +35,11 @@
                         icon: 'el-icon-loading',
                         index: 'ctf',
                         title: 'CTF平台'
-                        /*subs:[
-                            {
-                                index:'ctfProblem',
-                                title:'题库'
-                            },{
-                                index:'ctfProblemSubmit',
-                                title:'添加题目'
-                            }*/
-
+                    },
+                    {
+                        icon: 'el-icon-loading',
+                        index: 'board',
+                        title: '公告'
                     }
                 ]
             }
