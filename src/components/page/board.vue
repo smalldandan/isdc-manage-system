@@ -1,7 +1,7 @@
 <template>
     <!--走马灯显示公告面板-->
     <el-carousel indicator-position="outside" :interval="4000" type="card" height="400px">
-        <el-carousel-item v-for="(item, index) in form">
+        <el-carousel-item v-for="(item, index) in marqueeList">
 
 
             <div class="el-row" style="margin-left: -10px; margin-right: -10px;">
@@ -32,7 +32,7 @@
         name: "board",
         data() {
             return {
-                url: '/Announce/list',
+                url: '',
                 tableData: [],
                 formLabelWidth: '120px',
                 form: {
